@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class PetManager{
 	Pet pet;
-	
 	Scanner input;
 	
 	PetManager(Scanner input){
@@ -29,20 +28,16 @@ public class PetManager{
 	}
 	
 	public void deletepet() {
-	
 		System.out.print("Pet ID: ");
 		int petid = input.nextInt();
-		if(pet.id == petid) {
-			return;
-		}
-		System.out.println("the pet has not been regostered");
 		if(pet == null) {
+			System.out.println("the pet has not been registered.");
 			return;
 		}
-		if(pet.id == petid){
+		if(pet.id == petid) {
 			pet = null;
 			System.out.println("the pet is deleted.");
-		}
+		} 
 	}
 	
 	public void editpet() {

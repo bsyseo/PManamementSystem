@@ -7,7 +7,6 @@ public class Pet {
 	String phone;
 	
 	public Pet() {
-		
 	}
 	
 	public Pet(String name, int id) {
@@ -20,11 +19,10 @@ public class Pet {
 		this.id = id;
 		this.information = information;
 		this.phone = phone;
-		
 	}
 	
 	public void printInfo() {
-		System.out.println("name: " + name + "Id: " + id + "Information: " + information + "Phone number: " + phone);
+		System.out.println("name: " + name + " id:" + id + " information: " + information + " phone: " + phone);
 	}
-	
+
 }

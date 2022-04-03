@@ -5,7 +5,7 @@ public class Menu {
 	public static void main(String[] args) {
 		
 		Scanner input = new Scanner(System.in);
-		PetManager PetManager = new PetManager(input);
+		PetManager petManager = new PetManager(input);
 		
 		int num = -1;
 		
@@ -19,16 +19,16 @@ public class Menu {
 			System.out.println("Select One Number between 1 - 5: ");
 			num = input.nextInt();
 			if(num==1) {
-				PetManager.addpet();
+				petManager.addpet();
 			}
 			else if(num==2) {
-				PetManager.deletepet();
+				petManager.deletepet();
 			}
 			else if(num==3) {
-				PetManager.editpet();
+				petManager.editpet();
 			}
 			else if(num==4) {
-				PetManager.viewpet();
+				petManager.viewpet();
 			}
 			else {
 				continue;
