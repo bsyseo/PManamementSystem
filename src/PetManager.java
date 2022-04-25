@@ -1,58 +1,119 @@
 
 import java.util.Scanner;
 
+import pet.Cat;
+import pet.Pet;
+
+import java.util.ArrayList;
+
 public class PetManager{
-	Pet pet;
+	ArrayList<Pet> pets = new ArrayList<Pet>();
 	Scanner input;
-	
 	PetManager(Scanner input){
 		this.input = input;
-		
 	}
 	
 	public void addpet() {
 		
-		pet = new Pet();
+		int kind = 0;
+		Pet pet;
+		while(kind !=1 && kind !=2) {
+			System.out.println("1 for Dog");
+			System.out.println("2 for Cat");
+			System.out.print("Select Pet kind between 1 and 2: ");
+			kind = input.nextInt();
+			if(kind == 1) {
+				pet = new Pet();
+				pet.getUserInput(input);
+				pets.add(pet);
+				break;
+			}
+			else if(kind ==2) {
+				pet = new Cat();
+				pet.getUserInput(input);
+				pets.add(pet);
+				break;
+			}
+			else {
+				System.out.print("Select Pet kind between 1 and 2: ");
+			}
+		}
+
 	
-		System.out.print("Pet ID: ");
-		pet.id = input.nextInt();
-		
-		System.out.print("Pet Name: ");
-		pet.name = input.next();
-		
-		System.out.print("Pet Information: ");
-		pet.information = input.next();
-		
-		System.out.print("Phone number: ");
-		pet.phone = input.next();
 	}
 	
 	public void deletepet() {
 		System.out.print("Pet ID: ");
 		int petid = input.nextInt();
-		if(pet == null) {
+		int index=-1;
+		for(int i=0; i<pets.size(); i++) {
+			if(pets.get(i).getId() == petid) {
+				index = i;
+				break;
+			}
+		}
+		
+		if(index>=0) {
+			pets.remove(index);
+			System.out.println("the pet" + petid + "is deleted");
+		}
+		else {
 			System.out.println("the pet has not been registered.");
 			return;
 		}
-		if(pet.id == petid) {
-			pet = null;
-			System.out.println("the pet is deleted.");
-		} 
 	}
 	
 	public void editpet() {
 		System.out.print("Pet ID: ");
 		int petid = input.nextInt();
-		if(pet.id == petid) {
-			System.out.println("the pet to be edited is " + petid);
+		for(int i=0; i<pets.size(); i++) {
+			Pet pet = pets.get(i);
+			if(pet.getId() == petid) {
+				int num = -1;
+				while(num != 5) {
+					System.out.println("** Pet Info Edit Menu **");
+				    System.out.println("1. Edit Id");
+				    System.out.println("2. Edit Name");
+				    System.out.println("3. Edit Email");
+				    System.out.println("4. View Phone");
+				    System.out.println("5. Exit ");
+				    System.out.println("Select One Number between 1 - 5: ");
+				    num = input.nextInt();
+				    if(num==1) {
+				    	System.out.print("Pet ID: ");
+					    int id = input.nextInt();
+					    pet.setId(id);
+					    }
+				    else if(num==2) {
+				    	System.out.print("Pet name: ");
+				    	String name = input.next();
+				    	pet.setName(name);
+				    	}
+				    else if(num==3) {
+				    	System.out.print("Information: ");
+				    	String information = input.next();
+				    	pet.setInformation(information);
+				    	}
+				    else if(num==4) {
+				    	System.out.print("Phone Number: ");
+				    	String phone = input.next();
+				    	pet.setPhone(phone);
+				    	}
+				    else {
+				    	continue;
+				    	} //if
+				    } //while
+				break;
+				} //if
+			} //for
 		}
-	}
 	
-	public void viewpet() {
-		System.out.print("Pet ID: ");
-		int petid = input.nextInt();
-		if(pet.id == petid) {
-			pet.printInfo();
+	public void viewpets() {
+//		System.out.print("Pet ID: ");
+//		int petid = input.nextInt();
+		System.out.println("# of registered pets:" + pets.size());
+		for(int i=0; i<pets.size(); i++) {
+			pets.get(i).printInfo();
 		}
 	}
 }

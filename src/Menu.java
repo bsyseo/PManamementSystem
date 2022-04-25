@@ -28,16 +28,14 @@ public class Menu {
 				petManager.editpet();
 			}
 			else if(num==4) {
-				petManager.viewpet();
+				petManager.viewpets();
 			}
 			else {
 				continue;
 			}
 		}
 	}
-	
-	
-	}
+}
 
 
 
