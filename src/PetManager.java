@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 import pet.Cat;
 import pet.Pet;
+import pet.Petkind;
+import pet.livestock;
 
 import java.util.ArrayList;
 
@@ -18,18 +20,25 @@ public class PetManager{
 		int kind = 0;
 		Pet pet;
 		while(kind !=1 && kind !=2) {
-			System.out.println("1 for Dog");
-			System.out.println("2 for Cat");
-			System.out.print("Select Pet kind between 1 and 2: ");
+			System.out.println("1. Dog");
+			System.out.println("2. Cat");
+			System.out.println("3. Livestock");
+			System.out.print("Select num 1-3: ");
 			kind = input.nextInt();
 			if(kind == 1) {
-				pet = new Pet();
+				pet = new Pet(Petkind.Dog);
 				pet.getUserInput(input);
 				pets.add(pet);
 				break;
 			}
 			else if(kind ==2) {
-				pet = new Cat();
+				pet = new Cat(Petkind.Cat);
+				pet.getUserInput(input);
+				pets.add(pet);
+				break;
+			}
+			else if(kind==3) {
+				pet = new livestock(Petkind.livestock);
 				pet.getUserInput(input);
 				pets.add(pet);
 				break;
@@ -74,7 +83,7 @@ public class PetManager{
 					System.out.println("** Pet Info Edit Menu **");
 				    System.out.println("1. Edit Id");
 				    System.out.println("2. Edit Name");
-				    System.out.println("3. Edit Email");
+				    System.out.println("3. Edit information");
 				    System.out.println("4. View Phone");
 				    System.out.println("5. Exit ");
 				    System.out.println("Select One Number between 1 - 5: ");

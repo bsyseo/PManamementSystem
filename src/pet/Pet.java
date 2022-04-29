@@ -8,6 +8,10 @@ public class Pet {
 	public Petkind getKind() {
 		return kind;
 	}
+	
+	public Pet(Petkind kind) {
+		this.kind = kind;
+	}
 
 	public void setKind(Petkind kind) {
 		this.kind = kind;
@@ -68,8 +72,32 @@ public class Pet {
 		this.phone = phone;
 		
 	}
+	public Pet(Petkind kind, String name, int id, String information, String phone) {
+		this.kind = kind;
+		this.name = name;
+		this.id = id;
+		this.information = information;
+		this.phone = phone;
+	}
 	
 	public void printInfo() {
+		String skind = "none";
+		switch(this.kind){
+		case Dog:
+			skind = "dog";
+			break;
+		case Cat:
+			skind = "Cat";
+			break;
+		case Others:
+			skind = "Others";
+			break;
+		case livestock:
+			skind = "livestock";
+			break;
+		default:
+		}
+		System.out.println("kind: " + skind);
 		System.out.println("name: " + name);
 		System.out.println("id: " + id);
 		System.out.println("information: " + information);

@@ -2,11 +2,15 @@ package pet;
 
 import java.util.Scanner;
 
-public class Cat extends Pet {
+public class livestock extends Pet {
 	
-	public Cat(Petkind kind) {
+	protected String FarmAddress;
+	protected String FarmNumber;
+	
+	public livestock(Petkind kind) {
 		super(kind);
 	}
+	
 	public void getUserInput(Scanner input) {
 		
 		System.out.print("Pet ID: ");
@@ -20,10 +24,10 @@ public class Cat extends Pet {
 		char answer = 'x';
 		while(answer !='y' && answer != 'Y' && answer !='n' && answer != 'N')
 		{
-			System.out.print("Do you have an Pet Information? (Y/N)");
+			System.out.print("Do you have an Farm address? (Y/N)");
 			answer = input.next().charAt(0);
 			if(answer=='y' || answer == 'Y') {
-				System.out.print("Pet information: ");
+				System.out.print("Farm address: ");
 				String information = input.next();
 				this.setInformation(information);
 				break;
@@ -39,5 +43,29 @@ public class Cat extends Pet {
 		System.out.print("Phone number: ");
 		String phone = input.next();
 		this.setPhone(phone);
+		
+	}
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind){
+		case Dog:
+			skind = "dog";
+			break;
+		case Cat:
+			skind = "Cat";
+			break;
+		case Others:
+			skind = "Others";
+			break;
+		case livestock:
+			skind = "livestock";
+			break;
+		default:
+		}
+		System.out.println("kind: " + skind);
+		System.out.println("name: " + name);
+		System.out.println("id: " + id);
+		System.out.println("Farm address: " + information);
+		System.out.println("Farm number: " + phone);
 	}
 }
