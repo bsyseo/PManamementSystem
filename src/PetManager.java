@@ -84,7 +84,7 @@ public class PetManager{
 				    System.out.println("1. Edit Id");
 				    System.out.println("2. Edit Name");
 				    System.out.println("3. Edit information");
-				    System.out.println("4. View Phone");
+				    System.out.println("4. Edit Phone");
 				    System.out.println("5. Exit ");
 				    System.out.println("Select One Number between 1 - 5: ");
 				    num = input.nextInt();
