@@ -14,8 +14,8 @@ public class Cat extends Pet {
 		this.setId(id);
 		
 		System.out.print("Pet Name: ");
-		String name = input.next();
-		this.setName(name);
+		String catname = input.next();
+		this.setName(catname);
 		
 		char answer = 'x';
 		while(answer !='y' && answer != 'Y' && answer !='n' && answer != 'N')
