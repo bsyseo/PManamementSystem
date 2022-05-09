@@ -2,7 +2,7 @@ package pet;
 
 import java.util.Scanner;
 
-public class Cat extends Pet {
+public class Cat extends Pet implements PetInput{
 	
 	public Cat(Petkind kind) {
 		super(kind);
@@ -39,5 +39,28 @@ public class Cat extends Pet {
 		System.out.print("Phone number: ");
 		String phone = input.next();
 		this.setPhone(phone);
+	}
+	public void printInfo() {
+		String skind = "none";
+		switch(this.kind){
+		case Dog:
+			skind = "dog";
+			break;
+		case Cat:
+			skind = "Cat";
+			break;
+		case Others:
+			skind = "Others";
+			break;
+		case livestock:
+			skind = "livestock";
+			break;
+		default:
+		}
+		System.out.println("kind: " + skind);
+		System.out.println("name: " + name);
+		System.out.println("id: " + id);
+		System.out.println("information: " + information);
+		System.out.println("phone: " + phone);
 	}
 }

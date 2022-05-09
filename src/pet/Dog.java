@@ -2,12 +2,9 @@ package pet;
 
 import java.util.Scanner;
 
-public class livestock extends Pet implements PetInput {
+public class Dog extends Pet implements PetInput {
 	
-	protected String FarmAddress;
-	protected String FarmNumber;
-	
-	public livestock(Petkind kind) {
+	public Dog(Petkind kind) {
 		super(kind);
 	}
 	
@@ -21,30 +18,15 @@ public class livestock extends Pet implements PetInput {
 		String name = input.next();
 		this.setName(name);
 		
-		char answer = 'x';
-		while(answer !='y' && answer != 'Y' && answer !='n' && answer != 'N')
-		{
-			System.out.print("Do you have an Farm address? (Y/N)");
-			answer = input.next().charAt(0);
-			if(answer=='y' || answer == 'Y') {
-				System.out.print("Farm address: ");
-				String information = input.next();
-				this.setInformation(information);
-				break;
-				}
-			else if(answer=='n' || answer == 'N') {
-				this.setInformation("");
-				break;
-				}
-			else {
-				
-			}
-		}
+		System.out.print("Pet Information: ");
+		String information = input.next();
+		this.setInformation(information);
+		
 		System.out.print("Phone number: ");
 		String phone = input.next();
 		this.setPhone(phone);
-		
 	}
+	
 	public void printInfo() {
 		String skind = "none";
 		switch(this.kind){
@@ -65,7 +47,7 @@ public class livestock extends Pet implements PetInput {
 		System.out.println("kind: " + skind);
 		System.out.println("name: " + name);
 		System.out.println("id: " + id);
-		System.out.println("Farm address: " + information);
-		System.out.println("Farm number: " + phone);
+		System.out.println("information: " + information);
+		System.out.println("phone: " + phone);
 	}
 }

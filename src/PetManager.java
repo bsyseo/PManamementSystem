@@ -2,14 +2,16 @@
 import java.util.Scanner;
 
 import pet.Cat;
+import pet.Dog;
 import pet.Pet;
+import pet.PetInput;
 import pet.Petkind;
 import pet.livestock;
 
 import java.util.ArrayList;
 
 public class PetManager{
-	ArrayList<Pet> pets = new ArrayList<Pet>();
+	ArrayList<PetInput> pets = new ArrayList<PetInput>();
 	Scanner input;
 	PetManager(Scanner input){
 		this.input = input;
@@ -18,7 +20,7 @@ public class PetManager{
 	public void addpet() {
 		
 		int kind = 0;
-		Pet pet;
+		PetInput petInput;
 		while(kind !=1 && kind !=2) {
 			System.out.println("1. Dog");
 			System.out.println("2. Cat");
@@ -26,21 +28,21 @@ public class PetManager{
 			System.out.print("Select num 1-3: ");
 			kind = input.nextInt();
 			if(kind == 1) {
-				pet = new Pet(Petkind.Dog);
-				pet.getUserInput(input);
-				pets.add(pet);
+				petInput = new Dog(Petkind.Dog);
+				petInput.getUserInput(input);
+				pets.add(petInput);
 				break;
 			}
 			else if(kind ==2) {
-				pet = new Cat(Petkind.Cat);
-				pet.getUserInput(input);
-				pets.add(pet);
+				petInput = new Cat(Petkind.Cat);
+				petInput.getUserInput(input);
+				pets.add(petInput);
 				break;
 			}
 			else if(kind==3) {
-				pet = new livestock(Petkind.livestock);
-				pet.getUserInput(input);
-				pets.add(pet);
+				petInput = new livestock(Petkind.livestock);
+				petInput.getUserInput(input);
+				pets.add(petInput);
 				break;
 			}
 			else {
@@ -76,8 +78,8 @@ public class PetManager{
 		System.out.print("Pet ID: ");
 		int petid = input.nextInt();
 		for(int i=0; i<pets.size(); i++) {
-			Pet pet = pets.get(i);
-			if(pet.getId() == petid) {
+			PetInput petInput = pets.get(i);
+			if(petInput.getId() == petid) {
 				int num = -1;
 				while(num != 5) {
 					System.out.println("** Pet Info Edit Menu **");
@@ -91,22 +93,22 @@ public class PetManager{
 				    if(num==1) {
 				    	System.out.print("Pet ID: ");
 					    int id = input.nextInt();
-					    pet.setId(id);
+					    petInput.setId(id);
 					    }
 				    else if(num==2) {
 				    	System.out.print("Pet name: ");
 				    	String name = input.next();
-				    	pet.setName(name);
+				    	petInput.setName(name);
 				    	}
 				    else if(num==3) {
 				    	System.out.print("Information: ");
 				    	String information = input.next();
-				    	pet.setInformation(information);
+				    	petInput.setInformation(information);
 				    	}
 				    else if(num==4) {
 				    	System.out.print("Phone Number: ");
 				    	String phone = input.next();
-				    	pet.setPhone(phone);
+				    	petInput.setPhone(phone);
 				    	}
 				    else {
 				    	continue;

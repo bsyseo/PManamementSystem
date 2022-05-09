@@ -2,9 +2,14 @@ package pet;
 
 import java.util.Scanner;
 
-public class Pet {
+public abstract class Pet {
 
 	protected Petkind kind = Petkind.Dog;
+	protected String name;
+	protected int id;
+	protected String information;
+	protected String phone;
+
 	public Petkind getKind() {
 		return kind;
 	}
@@ -49,11 +54,6 @@ public class Pet {
 		this.phone = phone;
 	}
 
-	protected String name;
-	protected int id;
-	protected String information;
-	protected String phone;
-
 	
 	public Pet() {
 		
@@ -80,47 +80,6 @@ public class Pet {
 		this.phone = phone;
 	}
 	
-	public void printInfo() {
-		String skind = "none";
-		switch(this.kind){
-		case Dog:
-			skind = "dog";
-			break;
-		case Cat:
-			skind = "Cat";
-			break;
-		case Others:
-			skind = "Others";
-			break;
-		case livestock:
-			skind = "livestock";
-			break;
-		default:
-		}
-		System.out.println("kind: " + skind);
-		System.out.println("name: " + name);
-		System.out.println("id: " + id);
-		System.out.println("information: " + information);
-		System.out.println("phone: " + phone);
-	}
-	
-	public void getUserInput(Scanner input) {
-		
-		System.out.print("Pet ID: ");
-		int id = input.nextInt();
-		this.setId(id);
-		
-		System.out.print("Pet Name: ");
-		String name = input.next();
-		this.setName(name);
-		
-		System.out.print("Pet Information: ");
-		String information = input.next();
-		this.setInformation(information);
-		
-		System.out.print("Phone number: ");
-		String phone = input.next();
-		this.setPhone(phone);
-	}
+	public abstract void printInfo();
 
 }
