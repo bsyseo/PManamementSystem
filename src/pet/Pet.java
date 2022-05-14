@@ -2,7 +2,9 @@ package pet;
 
 import java.util.Scanner;
 
-public abstract class Pet {
+import exception.InformationFormatException;
+
+public abstract class Pet implements PetInput{
 
 	protected Petkind kind = Petkind.Dog;
 	protected String name;
@@ -40,9 +42,12 @@ public abstract class Pet {
 
 	public String getInformation() {
 		return information;
-	}
+	} 
 
-	public void setInformation(String information) {
+	public void setInformation(String information) throws InformationFormatException {
+		if(!information.contains(",") && !information.equals("")) {
+			throw new InformationFormatException();
+		}
 		this.information = information;
 	}
 
@@ -81,5 +86,53 @@ public abstract class Pet {
 	}
 	
 	public abstract void printInfo();
+	
+	public void setPetId(Scanner input) {
+    	System.out.print("Pet ID: ");
+	    int id = input.nextInt();
+	    this.setId(id);
+	}
+	public void setPetName(Scanner input) {
+    	System.out.print("Pet name: ");
+    	String name = input.next();
+    	this.setName(name);
+	}
 
+	public void setPetInformation(Scanner input) {
+		String information = "";
+		while (!information.contains(",")) {
+			System.out.print("Information: ");
+			information = input.next();
+			try {
+				this.setInformation(information);
+			} catch (InformationFormatException e) {
+				System.out.println("Enter more information using the ','");
+			}
+		}
+
+	}
+	public void setPetPhone(Scanner input) {
+    	System.out.print("Phone Number: ");
+    	String phone = input.next();
+    	this.setPhone(phone);
+	}
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind){
+		case Dog:
+			skind = "dog";
+			break;
+		case Cat:
+			skind = "Cat";
+			break;
+		case Others:
+			skind = "Others";
+			break;
+		case livestock:
+			skind = "livestock";
+			break;
+		default:
+		}
+		return skind;
+	}
 }
