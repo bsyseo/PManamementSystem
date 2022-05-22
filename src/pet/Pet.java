@@ -1,11 +1,16 @@
 package pet;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.InformationFormatException;
 
-public abstract class Pet implements PetInput{
+public abstract class Pet implements PetInput, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -643781962665138602L;
 	protected Petkind kind = Petkind.Dog;
 	protected String name;
 	protected int id;

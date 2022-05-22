@@ -3,17 +3,21 @@ import java.util.Scanner;
 
 import pet.Cat;
 import pet.Dog;
-import pet.Pet;
 import pet.PetInput;
 import pet.Petkind;
 import pet.livestock;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
-public class PetManager{
+public class PetManager implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4495240440151229958L;
 	ArrayList<PetInput> pets = new ArrayList<PetInput>();
-	Scanner input;
+	transient Scanner input;
 	PetManager(Scanner input){
 		this.input = input;
 	}
