@@ -52,5 +52,12 @@ public class livestock extends BabyPet {
 		System.out.println("Farm address: " + information);
 		System.out.println("Farm number: " + phone);
 	}
+
+
+	@Override
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

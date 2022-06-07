@@ -16,5 +16,8 @@ public interface PetInput {
 	public void setPetName(Scanner input);
 	public void setPetInformation(Scanner input);
 	public void setPetPhone(Scanner input);
+	public String getName();
+	public String getInfo();
+	public String getPhone();
 	
 }

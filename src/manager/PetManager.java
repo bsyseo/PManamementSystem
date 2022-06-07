@@ -1,8 +1,10 @@
+package manager;
 
 import java.util.Scanner;
 
 import pet.Cat;
 import pet.Dog;
+import pet.Pet;
 import pet.PetInput;
 import pet.Petkind;
 import pet.livestock;
@@ -131,6 +133,12 @@ public class PetManager implements Serializable{
 			pets.get(i).printInfo();
 		}
 	}
+	public int size() {
+		return pets.size();
+	}
+	public PetInput get(int index) {
+		return (Pet) pets.get(index);
+	}
 	public void showEditMenu() {
 		System.out.println("** Pet Info Edit Menu **");
 	    System.out.println("1. Edit Id");
@@ -139,5 +147,10 @@ public class PetManager implements Serializable{
 	    System.out.println("4. Edit Phone");
 	    System.out.println("5. Exit ");
 	    System.out.println("Select One Number between 1 - 5: ");
+	}
+
+	public void setScanner(Scanner input2) {
+		// TODO Auto-generated method stub
+		
 	}
 }

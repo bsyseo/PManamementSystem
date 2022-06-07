@@ -23,4 +23,10 @@ public class Dog extends Pet {
 		System.out.println("information: " + information);
 		System.out.println("phone: " + phone);
 	}
+
+	@Override
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

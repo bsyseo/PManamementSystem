@@ -13,6 +13,11 @@ public class Cat extends BabyPet {
 		setPetInformationwithYN(input);
 		setPetPhone(input);
 	}
+	@Override
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

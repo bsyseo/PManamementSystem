@@ -1,3 +1,4 @@
+package manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class Menu {
@@ -20,7 +22,11 @@ public class Menu {
 		if(petManager == null) {
 			petManager = new PetManager(input);
 		}
+		else {
+			petManager.setScanner(input);
+		}
 		
+		WindowFrame frame = new WindowFrame(petManager);
 		selectMenu(input, petManager);
 		putObject(petManager, "petmanager.ser");
 	}
