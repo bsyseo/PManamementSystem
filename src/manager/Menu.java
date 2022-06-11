@@ -16,7 +16,6 @@ public class Menu {
 
 	public static void main(String[] args) {
 		
-		
 		Scanner input = new Scanner(System.in);
 		PetManager petManager = getObject("petmanager.ser");
 		if(petManager == null) {

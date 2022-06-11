@@ -24,6 +24,16 @@ public class PetManager implements Serializable{
 		this.input = input;
 	}
 	
+	public void addpet(String id, String name, String information, String phone) {
+		PetInput petInput = new Dog(Petkind.Dog);
+		petInput.getUserInput(input);
+		pets.add(petInput);
+	}
+	
+	public void addpet(PetInput petInput) {
+		pets.add(petInput);
+	}
+	
 	public void addpet() {
 
 		int kind = 0;

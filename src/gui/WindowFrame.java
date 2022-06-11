@@ -19,7 +19,7 @@ public class WindowFrame extends JFrame{
 		
 		this.petManager = petManager;
 		meneselection = new MenuSelection(this);
-		petadder = new PetAdder(this);
+		petadder = new PetAdder(this, this.petManager);
 		petviewer = new PetViewer(this, this.petManager);
 		
 	
